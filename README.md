@@ -1,8 +1,18 @@
 # MarsWeatherApp
 
+the Nasa Mars Weather API shows the weather of the last 7 days
+
+<img src="./pictures/Screenshot%202020-07-08%20at%2023.46.00.png" width="500">
+
 ## Build Setup
 
 ```bash
+# clone repository
+$ git clone https://github.com/OliviaHelmuth/MarsWeatherWebApp.git
+
+# change into directory
+$ cd MarsWeatherApp
+
 # install dependencies
 $ yarn install
 

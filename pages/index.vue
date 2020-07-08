@@ -10,9 +10,8 @@
       <a href="https://www.spacex.com/rideshare/" target="_blank">Mars !</a>
     </div>
     <div id="weatherForecast">
-      <div v-for="item in days" :key="item.day">
-        <span class="day">Sol {{item.day}}</span>
-        <span class>{{day1earth}}</span>
+      <div class="weatherDay" v-for="item in days" :key="item.day">
+        <div class="dayWrapper"><span class="day">Sol {{item.day}}</span></div>
         <span class="temp">min: {{item.min}}°C</span>
         <span class="temp">max: {{item.max}}°C</span>
       </div>
@@ -25,7 +24,6 @@ export default {
     return {
       apiData: null,
       days: [],
-      day1earth: null
     };
   },
   computed: {
@@ -93,10 +91,15 @@ $white: #f2f1ec;
   grid-template-columns: repeat(7, 1fr);
   column-gap: 1rem;
   justify-items: center;
-  div {
+  .weatherDay {
+    padding-top: 1rem;
+    border-radius: 10px;
     height: 13rem;
     width: 11rem;
     background-color: rgba(165, 153, 140, 0.3);
+  }
+  .dayWrapper {
+    height: 4rem;
   }
 }
 #flightBooking {
@@ -112,10 +115,10 @@ $white: #f2f1ec;
 .day {
   font-size: 2rem;
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 2rem;
 }
 .temp {
   font-size: 1.5rem;
-  padding: 1rem 1rem;
+  padding: 1rem;
 }
 </style>
