@@ -142,7 +142,7 @@ body {
   #weatherForecast {
     display: block;
     .weatherDay {
-      margin: $spacing;
+      margin: $spacing 0;
     }
   }
   #background {
