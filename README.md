@@ -1,5 +1,7 @@
 # MarsWeatherApp
 
+## <a href="https://oh-marsweatherapp.netlify.app/" target="_blank">Live Demo</a>
+
 the Nasa Mars Weather API shows the weather of the last 7 days
 
 <img src="./pictures/Screenshot%202020-07-08%20at%2023.46.00.png" width="500">
