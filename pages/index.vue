@@ -8,6 +8,9 @@
       book a flight to
       <a href="https://www.spacex.com/rideshare/" target="_blank">Mars !</a>
     </div>
+    <div v-if="days.length==0" class="warning">
+      Error, The Nasa API is currently not responding please try again later
+    </div>
     <div class="flex-wrapper">
       <div id="weatherForecast">
         <div class="weatherDay" v-for="item in days" :key="item.day">
@@ -33,7 +36,8 @@ export default {
         return "loading...";
       }
       const season = this.apiData["sol_keys"][0];
-      return this.apiData[season]["Season"];
+      if (season != undefined)  
+        return this.apiData[season]["Season"];
     }
   },
   methods: {
@@ -50,7 +54,7 @@ export default {
     addDay(day, min, max) {
       this.days.push({ day: day, min: min, max: max });
     },
-    displayData() {
+    displayData() {      
       for (let i = 0; i < 7; i++) {
         const day = this.apiData["sol_keys"][i];
         const low = Math.round(this.apiData[day]["AT"]["mn"] * 10) / 10;
@@ -105,8 +109,8 @@ body {
   align-items: end;
 }
 #weatherForecast {
-  width: 100%;
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(auto-fit, 10rem);
   column-gap: 1rem;
   row-gap: 1rem;
@@ -136,6 +140,10 @@ body {
   font-size: $font-normal;
   padding: $spacing-sm;
   text-align: center;
+}
+.warning {
+  width: 100%;
+  font-size: $font-big;
 }
 
 @media (max-width: 463px) {
